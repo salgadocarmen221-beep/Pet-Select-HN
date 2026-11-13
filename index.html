@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PetSelect HN | Insumos Importados de EE.UU. para Mascotas en Honduras</title>
+  <meta name="description" content="Tienda en línea de insumos originales para mascotas importados desde Estados Unidos hacia Honduras. Calidad garantizada y atención directa vía WhatsApp." />
+
+  <!-- Tipografía moderna y legible (Plus Jakarta Sans & Inter) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Iconos Phosphor (Ligeros y elegantes) -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <!-- Tailwind CSS via CDN para arquitectura limpia y responsiva -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f0fdfa',
+              100: '#ccfbf1',
+              500: '#14b8a6',
+              600: '#0d9488',
+              700: '#0f766e',
+              800: '#115e59',
+              900: '#134e4a',
+              950: '#042f2e',
+            },
+            slate: {
+              850: '#172033',
+              900: '#0f172a',
+            },
+            accent: {
+              500: '#f59e0b',
+              600: '#d97706',
+            }
+          },
+          boxShadow: {
+            'soft': '0 10px 40px -10px rgba(15, 23, 42, 0.08)',
+            'card': '0 4px 20px -2px rgba(15, 23, 42, 0.05)',
+            'card-hover': '0 20px 35px -5px rgba(13, 148, 136, 0.14), 0 8px 15px -6px rgba(15, 23, 42, 0.06)',
+            'float': '0 15px 35px rgba(15, 23, 42, 0.18)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ==========================================================================
+       ESTILOS PERSONALIZADOS, MICROINTERACCIONES Y ANIMACIONES
+       ========================================================================== */
+    :root {
+      --bg-surface: #f8fafc;
+      --primary-teal: #0f766e;
+      --whatsapp-green: #25D366;
+    }
+
+    body {
+      background-color: var(--bg-surface);
+      color: #1e293b;
+      overflow-x: hidden;
+    }
+
+    /* Scrollbar sutil */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f1f5f9;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    /* Patrón sutil de fondo para Hero */
+    .hero-pattern {
+      background-color: #0f172a;
+      background-image: 
+        radial-gradient(at 85% 15%, rgba(20, 184, 166, 0.22) 0px, transparent 50%),
+        radial-gradient(at 10% 85%, rgba(15, 118, 110, 0.25) 0px, transparent 50%);
+    }
+
+    /* Animación de tarjetas de producto */
+    .product-card {
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+    }
+    .product-card .product-img {
+      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .product-card:hover .product-img {
+      transform: scale(1.06);
+    }
+
+    /* Feedback táctil en botones */
+    .btn-press {
+      transition: all 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .btn-press:active {
+      transform: scale(0.96);
+    }
+
+    /* Animaciones para Modal y Drawer */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes scaleUp {
+      from { opacity: 0; transform: scale(0.94) translateY(12px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    @keyframes slideLeft {
+      from { transform: translateX(100%); }
+      to { transform: translateX(0); }
+    }
+    @keyframes popIn {
+      0% { opacity: 0; transform: translateY(16px) scale(0.95); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .animate-fade-in { animation: fadeIn 0.25s ease-out forwards; }
+    .animate-scale-up { animation: scaleUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .animate-slide-left { animation: slideLeft 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .animate-pop-in { animation: popIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+    /* Indicador de escritura del Chatbot */
+    .typing-dot {
+      animation: typingBounce 1.4s infinite ease-in-out both;
+    }
+    .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+    .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+    @keyframes typingBounce {
+      0%, 80%, 100% { transform: scale(0); opacity: 0.4; }
+      40% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Badge pulso suave */
+    .pulse-ring {
+      position: relative;
+    }
+    .pulse-ring::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 9999px;
+      border: 2px solid #25D366;
+      opacity: 0;
+      animation: ringPulse 2.2s infinite;
+    }
+    @keyframes ringPulse {
+      0% { transform: scale(0.95); opacity: 0.7; }
+      100% { transform: scale(1.25); opacity: 0; }
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-brand-600 selection:text-white">
+
+  <!-- ==========================================================================
+       1. BARRA DE ANUNCIO SUPERIOR (PROPUESTA DE VALOR Y CONFIANZA)
+       ========================================================================== -->
+  <div class="bg-brand-950 text-brand-100 text-xs sm:text-sm py-2 px-4 border-b border-brand-800/60">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2 font-medium">
+        <span class="inline-flex items-center px-2 py-0.5 rounded bg-brand-800 text-brand-100 text-[11px] font-semibold tracking-wide uppercase">
+          🇺🇸 Importación Directa USA ➔ 🇭🇳 Honduras
+        </span>
+        <span class="hidden md:inline text-slate-300">Insumos seleccionados en inventario real con entrega coordinada.</span>
+      </div>
+      <div class="flex items-center gap-4 ml-auto">
+        <a href="https://wa.me/50499864645?text=Hola%20%F0%9F%98%8A%20Me%20gustar%C3%ADa%20consultar%20sobre%20sus%20insumos%20importados%20para%20mascotas." target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 font-medium transition">
+          <i class="ph-fill ph-whatsapp-logo text-base"></i>
+          <span>+504 9986-4645</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       2. NAVEGACIÓN PRINCIPAL STICKY
+       ========================================================================== -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 py-3.5 flex items-center justify-between gap-4">
+      
+      <!-- Logo de Marca -->
+      <a href="#inicio" class="flex items-center gap-2.5 group focus:outline-none">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-600 to-brand-800 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
+          <i class="ph-fill ph-paw-print text-xl"></i>
+        </div>
+        <div>
+          <span class="font-display font-extrabold text-xl tracking-tight text-slate-900 block leading-none">
+            PetSelect<span class="text-brand-600">HN</span>
+          </span>
+          <span class="text-[11px] font-medium text-slate-500 tracking-wide">USA Pet Imports</span>
+        </div>
+      </a>
+
+      <!-- Menú Desktop -->
+      <nav aria-label="Navegación Principal" class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+        <a href="#inicio" class="hover:text-brand-700 transition-colors py-1">Inicio</a>
+        <a href="#catalogo" class="hover:text-brand-700 transition-colors py-1">Catálogo / Tienda</a>
+        <a href="#nosotros" class="hover:text-brand-700 transition-colors py-1">Quiénes Somos</a>
+        <a href="#contacto" class="hover:text-brand-700 transition-colors py-1">Contáctanos</a>
+      </nav>
+
+      <!-- Acciones Derecha: Carrito + Menú Móvil -->
+      <div class="flex items-center gap-2.5 sm:gap-3">
+        <!-- Botón rápido WhatsApp Header -->
+        <a href="https://wa.me/50499864645?text=Hola%20%F0%9F%98%8A%20Quisiera%20informaci%C3%B3n%20sobre%20los%20insumos%20para%20mascotas%20disponibles."
+           target="_blank" rel="noopener noreferrer"
+           class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 transition btn-press">
+          <i class="ph-fill ph-whatsapp-logo text-base text-emerald-600"></i>
+          <span>Asesoría</span>
+        </a>
+
+        <!-- Botón Carrito -->
+        <button id="openCartBtn" type="button" aria-label="Abrir carrito de compras"
+                class="relative inline-flex items-center gap-2 px-3.5 sm:px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-brand-700 text-white text-sm font-semibold shadow-sm transition-all btn-press">
+          <i class="ph ph-shopping-bag text-lg"></i>
+          <span class="hidden sm:inline">Carrito</span>
+          <span id="cartBadge" class="inline-flex items-center justify-center min-w-[22px] h-[22px] px-1.5 text-xs font-bold rounded-full bg-accent-500 text-slate-950 transition-transform">
+            0
+          </span>
+        </button>
+
+        <!-- Botón Hamburguesa Móvil -->
+        <button id="mobileMenuBtn" type="button" aria-label="Abrir menú"
+                class="md:hidden p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 transition">
+          <i class="ph ph-list text-2xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menú Desplegable Móvil -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-slate-100 px-4 pt-2 pb-5 space-y-1 shadow-lg">
+      <a href="#inicio" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-700">Inicio</a>
+      <a href="#catalogo" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-700">Catálogo / Tienda</a>
+      <a href="#nosotros" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-700">Quiénes Somos</a>
+      <a href="#contacto" class="mobile-nav-link block px-3 py-2.5 rounded-lg text-sm font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-700">Contáctanos</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==========================================================================
+         3. SECCIÓN HOME: HERO + BENEFICIOS + DESTACADOS
+         ========================================================================== -->
+    <section id="inicio" class="hero-pattern text-white relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-22 lg:py-24 relative z-10">
+        <div class="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          
+          <!-- Columna Texto Hero -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 backdrop-blur-sm text-brand-200 text-xs sm:text-sm font-medium">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span>Stock verificado en Honduras • Importación desde EE.UU.</span>
+            </div>
+
+            <h1 class="font-display text-3xl sm:text-5xl lg:text-[54px] font-extrabold tracking-tight leading-[1.12] text-white">
+              Bienestar y calidad <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-300 to-emerald-300">importada de EE.UU.</span> para tu mascota.
+            </h1>
+
+            <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed">
+              Seleccionamos insumos auténticos para el descanso, higiene y paseo de tu mascota. Explora nuestro catálogo real con precios claros en Lempiras (L) y reserva tu pedido directamente por WhatsApp sin complicaciones.
+            </p>
+
+            <!-- CTAs Hero -->
+            <div class="flex flex-wrap items-center gap-3.5 pt-2">
+              <a href="#catalogo" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-brand-500 hover:bg-brand-400 text-slate-950 font-display font-bold text-sm sm:text-base shadow-lg shadow-brand-500/25 transition-all btn-press">
+                <span>Ver catálogo</span>
+                <i class="ph-bold ph-arrow-down-right text-lg"></i>
+              </a>
+              <a href="https://wa.me/50499864645?text=Hola%20%F0%9F%98%8A%20Me%20interesa%20cotizar%20y%20conocer%20disponibilidad%20de%20los%20insumos%20para%20mascotas%20de%20su%20tienda."
+                 target="_blank" rel="noopener noreferrer"
+                 class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/20 text-white font-semibold text-sm sm:text-base backdrop-blur-sm transition-all btn-press">
+                <i class="ph-fill ph-whatsapp-logo text-xl text-emerald-400"></i>
+                <span>Cotizar por WhatsApp</span>
+              </a>
+            </div>
+
+            <!-- Indicadores rápidos -->
+            <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/10 max-w-lg">
+              <div>
+                <p class="font-display font-bold text-xl sm:text-2xl text-white">100%</p>
+                <p class="text-xs text-slate-400">Importado USA</p>
+              </div>
+              <div>
+                <p class="font-display font-bold text-xl sm:text-2xl text-white">5 Ítems</p>
+                <p class="text-xs text-slate-400">Catálogo Activo</p>
+              </div>
+              <div>
+                <p class="font-display font-bold text-xl sm:text-2xl text-white">Directo</p>
+                <p class="text-xs text-slate-400">Reserva WhatsApp</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Columna Visual Hero: Vitrina de Productos Reales del Catálogo -->
+          <div class="lg:col-span-5">
+            <div class="bg-white/5 border border-white/15 backdrop-blur-md rounded-3xl p-5 sm:p-6 shadow-2xl">
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-xs font-semibold uppercase tracking-wider text-brand-300">Muestra del Inventario Actual</span>
+                <span class="inline-flex items-center gap-1 text-xs bg-emerald-500/20 text-emerald-300 px-2.5 py-1 rounded-full font-medium">
+                  <i class="ph-fill ph-check-circle"></i> Disponible
+                </span>
+              </div>
+              
+              <!-- Grid Preview con imágenes reales del catálogo -->
+              <div id="heroPreviewGrid" class="grid grid-cols-2 gap-3.5">
+                <!-- Se puebla dinámicamente desde el dataset oficial -->
+              </div>
+
+              <div class="mt-4 pt-3.5 border-t border-white/10 flex items-center justify-between text-xs text-slate-300">
+                <span>Precios expresados en Lempiras (L)</span>
+                <a href="#catalogo" class="text-brand-300 hover:text-white font-semibold inline-flex items-center gap-1">
+                  Explorar todos <i class="ph-bold ph-caret-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- BENEFICIOS / GARANTÍAS / POR QUÉ COMPRAR CON NOSOTROS -->
+    <section class="py-12 bg-white border-b border-slate-200/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+            <div class="w-11 h-11 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center shrink-0">
+              <i class="ph-duotone ph-airplane-tilt text-2xl"></i>
+            </div>
+            <div>
+              <h2 class="font-display font-bold text-slate-900 text-sm sm:text-base">Importación de EE.UU.</h2>
+              <p class="text-xs sm:text-sm text-slate-600 mt-1">Insumos traídos directamente desde distribuidores en Estados Unidos para Honduras.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+            <div class="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+              <i class="ph-duotone ph-seal-check text-2xl"></i>
+            </div>
+            <div>
+              <h2 class="font-display font-bold text-slate-900 text-sm sm:text-base">Fotos Reales del Catálogo</h2>
+              <p class="text-xs sm:text-sm text-slate-600 mt-1">Cada publicación muestra la fotografía real y marca exacta del insumo disponible.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+            <div class="w-11 h-11 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center shrink-0">
+              <i class="ph-duotone ph-currency-circle-dollar text-2xl"></i>
+            </div>
+            <div>
+              <h2 class="font-display font-bold text-slate-900 text-sm sm:text-base">Precios Claros en Lempiras</h2>
+              <p class="text-xs sm:text-sm text-slate-600 mt-1">Sin costos ocultos ni sorpresas de conversión; cotiza tu carrito al instante.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+            <div class="w-11 h-11 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center shrink-0">
+              <i class="ph-duotone ph-chat-circle-dots text-2xl"></i>
+            </div>
+            <div>
+              <h2 class="font-display font-bold text-slate-900 text-sm sm:text-base">Atención Humana Directa</h2>
+              <p class="text-xs sm:text-sm text-slate-600 mt-1">Confirmamos disponibilidad y coordinamos entrega o visita vía WhatsApp Business.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSUMOS DESTACADOS (SELECCIÓN RÁPIDA) -->
+    <section class="py-14 bg-slate-50 border-b border-slate-200/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-brand-700">Selección Recomendada</span>
+            <h2 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Insumos Destacados</h2>
+          </div>
+          <a href="#catalogo" class="text-sm font-semibold text-brand-700 hover:text-brand-800 inline-flex items-center gap-1.5">
+            <span>Ir al catálogo completo con filtros</span>
+            <i class="ph-bold ph-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Contenedor de 3 insumos destacados -->
+        <div id="featuredProductsGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Renderizado dinámico por JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         4. SECCIÓN CATÁLOGO / TIENDA COMPLETA (BUSCADOR, FILTROS Y GRID)
+         ========================================================================== -->
+    <section id="catalogo" class="py-16 sm:py-20 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Cabecera de Catálogo -->
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 text-brand-700 text-xs font-bold uppercase tracking-wider mb-2">
+              <i class="ph-fill ph-storefront"></i>
+              <span>Inventario Oficial Importado</span>
+            </div>
+            <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+              Catálogo de Insumos para Mascotas
+            </h2>
+            <p class="text-slate-600 mt-2 max-w-2xl text-sm sm:text-base">
+              Haz clic en cualquier producto para ver su ficha detallada con imagen ampliada, o agrégalo directamente a tu carrito para solicitar reserva por WhatsApp.
+            </p>
+          </div>
+
+          <!-- Botón de WhatsApp disponible también en Catálogo -->
+          <div class="shrink-0">
+            <a href="https://wa.me/50499864645?text=Hola%20%F0%9F%98%8A%20Estoy%20viendo%20su%20cat%C3%A1logo%20en%20l%C3%ADnea%20y%20me%20gustar%C3%ADa%20consultar%20disponibilidad."
+               target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-slate-950 font-display font-bold text-sm shadow-md transition btn-press">
+              <i class="ph-fill ph-whatsapp-logo text-xl"></i>
+              <span>Consultar Catálogo por WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Barra de Buscador y Filtros -->
+        <div class="bg-slate-50 border border-slate-200/90 rounded-2xl p-4 sm:p-5 mb-8 shadow-sm">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-4 items-end">
+            
+            <!-- Buscador por nombre o código -->
+            <div class="lg:col-span-5">
+              <label for="searchInput" class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
+                Buscar insumo o código
+              </label>
+              <div class="relative">
+                <i class="ph ph-magnifying-glass text-slate-400 text-lg absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+                <input type="text" id="searchInput" placeholder="Ej. Cama, Cepillo, Shampo, Harnes, Panuelo..."
+                       class="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-300 rounded-xl text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition" />
+              </div>
+            </div>
+
+            <!-- Filtro por Marca (Poblado dinámicamente con las marcas reales del catálogo) -->
+            <div class="lg:col-span-3">
+              <label for="brandFilter" class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
+                Filtrar por Marca
+              </label>
+              <select id="brandFilter"
+                      class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition">
+                <option value="all">Todas las marcas</option>
+              </select>
+            </div>
+
+            <!-- Filtro por Rango de Precio -->
+            <div class="lg:col-span-3">
+              <label for="priceFilter" class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">
+                Rango de Precio (Lempiras)
+              </label>
+              <select id="priceFilter"
+                      class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-sm text-slate-800 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 transition">
+                <option value="all">Todos los precios</option>
+                <option value="0-300">Hasta L 300</option>
+                <option value="301-500">De L 301 a L 500</option>
+                <option value="501-max">Más de L 500</option>
+              </select>
+            </div>
+
+            <!-- Botón Limpiar Filtros -->
+            <div class="lg:col-span-1">
+              <button id="resetFiltersBtn" type="button" title="Restablecer filtros"
+                      class="w-full py-2.5 px-3 rounded-xl bg-white hover:bg-slate-100 border border-slate-300 text-slate-600 text-sm font-medium flex items-center justify-center gap-1.5 transition btn-press">
+                <i class="ph ph-arrow-counter-clockwise text-base"></i>
+                <span class="lg:hidden">Limpiar</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Contador de resultados -->
+          <div class="mt-3.5 pt-3 border-t border-slate-200/70 flex items-center justify-between text-xs text-slate-500">
+            <span id="resultsCount">Mostrando 5 de 5 insumos disponibles</span>
+            <span>* Imágenes reales correspondientes a cada insumo en venta</span>
+          </div>
+        </div>
+
+        <!-- Grid Principal de Productos -->
+        <div id="catalogGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+          <!-- Las tarjetas se generan dinámicamente desde el dataset oficial -->
+        </div>
+
+        <!-- Estado Vacío si el filtro no arroja coincidencias -->
+        <div id="emptyCatalogState" class="hidden text-center py-16 px-4 bg-slate-50 rounded-3xl border border-dashed border-slate-300">
+          <div class="w-14 h-14 rounded-2xl bg-slate-200/70 text-slate-500 flex items-center justify-center mx-auto mb-3">
+            <i class="ph ph-magnifying-glass text-2xl"></i>
+          </div>
+          <h3 class="font-display font-bold text-lg text-slate-900">No encontramos insumos con ese criterio</h3>
+          <p class="text-sm text-slate-600 mt-1 max-w-md mx-auto">Intenta borrar el texto de búsqueda o restablecer los filtros de marca y precio.</p>
+          <button type="button" onclick="resetFilters()" class="mt-4 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-sm font-semibold transition">
+            Mostrar todo el catálogo
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         5. SECCIÓN QUIÉNES SOMOS (HISTORIA, IMPORTACIÓN, TRANSPARENCIA Y TESTIMONIOS)
+         ========================================================================== -->
+    <section id="nosotros" class="py-16 sm:py-20 bg-slate-50 border-t border-slate-200/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid lg:grid-cols-12 gap-12 items-start">
+          <!-- Historia y Transparencia -->
+          <div class="lg:col-span-6 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100/80 text-brand-800 text-xs font-bold uppercase tracking-wider">
+              <i class="ph-fill ph-shield-check"></i>
+              <span>Quiénes Somos • Respaldo y Confianza</span>
+            </div>
+
+            <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+              Conectamos el mercado de mascotas en Honduras con insumos importados de EE.UU.
+            </h2>
+
+            <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+              Nacimos con una misión clara: facilitar a las familias hondureñas el acceso a artículos funcionales, duraderos y seguros para el cuidado diario de sus mascotas, sin tener que esperar semanas por envíos internacionales individuales ni pagar sobrecostos excesivos.
+            </p>
+
+            <p class="text-slate-600 leading-relaxed text-sm sm:text-base">
+              Operamos bajo un modelo de <strong>transparencia total</strong>: publicamos únicamente los insumos que forman parte de nuestro catálogo verificado, con fotografías reales de cada artículo, marca exacta y precios claros en Lempiras.
+            </p>
+
+            <!-- Pilares de Seguridad -->
+            <div class="grid sm:grid-cols-2 gap-4 pt-2">
+              <div class="p-4 bg-white rounded-2xl border border-slate-200/80 shadow-xs">
+                <div class="flex items-center gap-2.5 font-display font-bold text-slate-900 text-sm mb-1.5">
+                  <i class="ph-fill ph-check-circle text-brand-600 text-lg"></i>
+                  <span>Sin Pagos Riesgosos Online</span>
+                </div>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  Armas tu carrito en la web y confirmamos existencias reales contigo vía WhatsApp antes de coordinar pago o entrega.
+                </p>
+              </div>
+
+              <div class="p-4 bg-white rounded-2xl border border-slate-200/80 shadow-xs">
+                <div class="flex items-center gap-2.5 font-display font-bold text-slate-900 text-sm mb-1.5">
+                  <i class="ph-fill ph-package text-brand-600 text-lg"></i>
+                  <span>Inspección Previa</span>
+                </div>
+                <p class="text-xs text-slate-600 leading-relaxed">
+                  Cada lote importado desde Estados Unidos es revisado en su empaque y estado antes de incorporarse al catálogo.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Proceso de Importación (Paso a paso visual) -->
+          <div class="lg:col-span-6 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200/90 shadow-soft">
+            <h3 class="font-display font-bold text-xl text-slate-900 mb-6 flex items-center gap-2">
+              <i class="ph-duotone ph-globe-hemisphere-west text-2xl text-brand-600"></i>
+              <span>Nuestro Proceso de Importación y Entrega</span>
+            </h3>
+
+            <div class="space-y-6 relative before:absolute before:left-5 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-200">
+              
+              <div class="relative flex items-start gap-4">
+                <div class="w-10 h-10 rounded-full bg-brand-600 text-white font-display font-bold text-sm flex items-center justify-center shrink-0 z-10 shadow">
+                  1
+                </div>
+                <div>
+                  <h4 class="font-display font-bold text-slate-900 text-sm sm:text-base">Selección en Estados Unidos</h4>
+                  <p class="text-xs sm:text-sm text-slate-600 mt-1">Adquirimos insumos prácticos de descanso, aseo y paseo (como camas, cepillos, shampoos medicados, arneses y pañuelos).</p>
+                </div>
+              </div>
+
+              <div class="relative flex items-start gap-4">
+                <div class="w-10 h-10 rounded-full bg-brand-600 text-white font-display font-bold text-sm flex items-center justify-center shrink-0 z-10 shadow">
+                  2
+                </div>
+                <div>
+                  <h4 class="font-display font-bold text-slate-900 text-sm sm:text-base">Logística y Nacionalización en Honduras</h4>
+                  <p class="text-xs sm:text-sm text-slate-600 mt-1">Gestionamos el transporte internacional y recepción segura para poner los productos a disposición local.</p>
+                </div>
+              </div>
+
+              <div class="relative flex items-start gap-4">
+                <div class="w-10 h-10 rounded-full bg-brand-600 text-white font-display font-bold text-sm flex items-center justify-center shrink-0 z-10 shadow">
+                  3
+                </div>
+                <div>
+                  <h4 class="font-display font-bold text-slate-900 text-sm sm:text-base">Reserva Digital y Atención Personalizada</h4>
+                  <p class="text-xs sm:text-sm text-slate-600 mt-1">Seleccionas tus artículos en esta tienda, envías tu resumen a nuestro WhatsApp (+504 9986-4645) y coordinamos entrega o visita.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonios Simulados de Clientes en Honduras -->
+        <div class="mt-16 pt-12 border-t border-slate-200/80">
+          <div class="text-center max-w-2xl mx-auto mb-10">
+            <span class="text-xs font-bold uppercase tracking-wider text-brand-700">Experiencias de Clientes</span>
+            <h3 class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">Lo que dicen quienes ya compraron</h3>
+            <p class="text-xs text-slate-500 mt-1">* Testimonios ilustrativos de referencia sobre nuestra experiencia de atención.</p>
+          </div>
+
+          <div class="grid md:grid-cols-3 gap-6">
+            <article class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-card">
+              <div class="flex items-center gap-1 text-amber-400 mb-3">
+                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+              </div>
+              <p class="text-sm text-slate-600 italic leading-relaxed">
+                "Pedí la cama para perro y el cepillo por WhatsApp desde la página. Me confirmaron rápido y la calidad del material se nota muchísimo."
+              </p>
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-brand-100 text-brand-800 font-bold text-xs flex items-center justify-center">AM</div>
+                <div>
+                  <p class="text-sm font-bold text-slate-900">Andrea Mejía</p>
+                  <p class="text-xs text-slate-500">Tegucigalpa, Honduras</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-card">
+              <div class="flex items-center gap-1 text-amber-400 mb-3">
+                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+              </div>
+              <p class="text-sm text-slate-600 italic leading-relaxed">
+                "Me gustó que las fotos son reales y los precios ya están en Lempiras. El shampo medicado Dermatex nos funcionó excelente."
+              </p>
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-emerald-100 text-emerald-800 font-bold text-xs flex items-center justify-center">CR</div>
+                <div>
+                  <p class="text-sm font-bold text-slate-900">Carlos Rivera</p>
+                  <p class="text-xs text-slate-500">San Pedro Sula, Honduras</p>
+                </div>
+              </div>
+            </article>
+
+            <article class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-card">
+              <div class="flex items-center gap-1 text-amber-400 mb-3">
+                <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+              </div>
+              <p class="text-sm text-slate-600 italic leading-relaxed">
+                "Súper práctico armar el carrito y mandar todo junto por WhatsApp. Compré el arnés y el pañuelo y coordinamos la entrega el mismo día."
+              </p>
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center gap-3">
+                <div class="w-9 h-9 rounded-full bg-amber-100 text-amber-800 font-bold text-xs flex items-center justify-center">SL</div>
+                <div>
+                  <p class="text-sm font-bold text-slate-900">Sofía López</p>
+                  <p class="text-xs text-slate-500">La Ceiba, Honduras</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         6. SECCIÓN CONTÁCTANOS (FORMULARIO, DATOS Y BOTÓN DIRECTO WHATSAPP)
+         ========================================================================== -->
+    <section id="contacto" class="py-16 sm:py-20 bg-white border-t border-slate-200/80">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-12 gap-10 items-start">
+          
+          <!-- Información de Contacto y Botones Rápidos -->
+          <div class="lg:col-span-5 space-y-6">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-brand-700">Atención al Cliente</span>
+              <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 mt-1">Contáctanos</h2>
+              <p class="text-slate-600 text-sm sm:text-base mt-2 leading-relaxed">
+                ¿Tienes dudas sobre algún insumo, disponibilidad inmediata o coordinación de entrega en Honduras? Escríbenos directamente.
+              </p>
+            </div>
+
+            <!-- Tarjeta WhatsApp Principal -->
+            <div class="p-6 rounded-3xl bg-gradient-to-br from-slate-900 to-brand-950 text-white shadow-xl space-y-4">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-[#25D366]/20 text-[#25D366] flex items-center justify-center">
+                  <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
+                </div>
+                <div>
+                  <p class="text-xs uppercase tracking-wider text-brand-300 font-semibold">Canal Oficial de Ventas</p>
+                  <p class="font-display font-bold text-lg">+504 9986-4645</p>
+                </div>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-300">
+                Respuesta ágil para cotizaciones, verificación de inventario, envíos locales y coordinación de entregas.
+              </p>
+              <a href="https://wa.me/50499864645?text=Hola%20%F0%9F%98%8A%20Me%20comunico%20desde%20la%20secci%C3%B3n%20de%20contacto%20de%20su%20tienda%20web%20para%20hacer%20una%20consulta."
+                 target="_blank" rel="noopener noreferrer"
+                 class="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-[#25D366] hover:bg-[#20bd5a] text-slate-950 font-display font-bold text-sm transition btn-press">
+                <i class="ph-fill ph-whatsapp-logo text-xl"></i>
+                <span>Iniciar Chat en WhatsApp</span>
+              </a>
+            </div>
+
+            <!-- Datos Operativos -->
+            <div class="space-y-3.5 pt-2">
+              <div class="flex items-center gap-3.5 p-3.5 rounded-2xl bg-slate-50 border border-slate-200/70">
+                <i class="ph-duotone ph-map-pin text-2xl text-brand-600"></i>
+                <div>
+                  <p class="text-xs font-semibold text-slate-500 uppercase">Cobertura</p>
+                  <p class="text-sm font-bold text-slate-900">Honduras (Entregas locales y envíos nacionales)</p>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3.5 p-3.5 rounded-2xl bg-slate-50 border border-slate-200/70">
+                <i class="ph-duotone ph-clock text-2xl text-brand-600"></i>
+                <div>
+                  <p class="text-xs font-semibold text-slate-500 uppercase">Horario de Atención</p>
+                  <p class="text-sm font-bold text-slate-900">Lunes a Sábado: 8:00 AM – 6:00 PM</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formulario de Consulta Rápida -->
+          <div class="lg:col-span-7 bg-slate-50 border border-slate-200/90 rounded-3xl p-6 sm:p-8 shadow-sm">
+            <h3 class="font-display font-bold text-xl text-slate-900 mb-1">Envíanos una consulta directa</h3>
+            <p class="text-xs sm:text-sm text-slate-600 mb-6">Completa los datos y te redirigiremos con tu mensaje listo a WhatsApp o registraremos tu solicitud.</p>
+
+            <form id="contactForm" class="space-y-4">
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="contactName" class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">Tu Nombre *</label>
+                  <input type="text" id="contactName" required placeholder="Ej. María Fernanda"
+                         class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500" />
+                </div>
+                <div>
+                  <label for="contactCity" class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">Ciudad en Honduras *</label>
+                  <input type="text" id="contactCity" required placeholder="Ej. Tegucigalpa / San Pedro Sula"
+                         class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500" />
+                </div>
+              </div>
+
+              <div>
+                <label for="contactTopic" class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">Insumo o tema de interés</label>
+                <select id="contactTopic" class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500">
+                  <option value="Consulta general de catálogo">Consulta general de catálogo</option>
+                  <option value="Cama para perro (Pet)">Cama para perro (Marca: Pet)</option>
+                  <option value="Cepillo para mascota (Poodle)">Cepillo para mascota (Marca: Poodle)</option>
+                  <option value="Shampo medicado (Dermatex)">Shampo medicado (Marca: Dermatex)</option>
+                  <option value="Harnes para mascota (Poodle)">Harnes para mascota (Marca: Poodle)</option>
+                  <option value="Panuelo para mascotas (Peet)">Panuelo para mascotas (Marca: Peet)</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="contactMessage" class="block text-xs font-semibold text-slate-700 uppercase tracking-wider mb-1.5">Mensaje *</label>
+                <textarea id="contactMessage" rows="4" required placeholder="Cuéntanos qué necesitas o si deseas coordinar una llamada/entrega..."
+                          class="w-full px-4 py-3 rounded-xl bg-white border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500"></textarea>
+              </div>
+
+              <div class="flex flex-wrap items-center justify-between gap-3 pt-2">
+                <button type="submit" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-brand-700 hover:bg-brand-800 text-white font-display font-bold text-sm shadow-md transition btn-press">
+                  <i class="ph-fill ph-paper-plane-tilt text-lg"></i>
+                  <span>Enviar Consulta por WhatsApp</span>
+                </button>
+                <span id="contactFeedback" class="text-xs font-semibold text-emerald-700 hidden">
+                  ✓ Abriendo WhatsApp con tu consulta...
+                </span>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       7. FOOTER SOBRIO Y PROFESIONAL
+       ========================================================================== -->
+  <footer class="bg-slate-900 text-slate-400 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 pb-8 border-b border-slate-800">
+        <div class="space-y-3">
+          <div class="flex items-center gap-2.5 text-white">
+            <div class="w-9 h-9 rounded-xl bg-brand-600 flex items-center justify-center">
+              <i class="ph-fill ph-paw-print text-lg"></i>
+            </div>
+            <span class="font-display font-extrabold text-lg">PetSelect<span class="text-brand-400">HN</span></span>
+          </div>
+          <p class="text-xs leading-relaxed text-slate-400">
+            Insumos para mascotas importados desde Estados Unidos para el público en Honduras. Calidad verificada y reservas directas vía WhatsApp.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="font-display font-bold text-white text-sm mb-3">Navegación</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#inicio" class="hover:text-brand-300 transition">Inicio</a></li>
+            <li><a href="#catalogo" class="hover:text-brand-300 transition">Catálogo / Tienda</a></li>
+            <li><a href="#nosotros" class="hover:text-brand-300 transition">Quiénes Somos</a></li>
+            <li><a href="#contacto" class="hover:text-brand-300 transition">Contáctanos</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-display font-bold text-white text-sm mb-3">Catálogo Activo</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#catalogo" class="hover:text-brand-300 transition">Cama para perro (Pet)</a></li>
+            <li><a href="#catalogo" class="hover:text-brand-300 transition">Cepillo para mascota (Poodle)</a></li>
+            <li><a href="#catalogo" class="hover:text-brand-300 transition">Shampo medicado (Dermatex)</a></li>
+            <li><a href="#catalogo" class="hover:text-brand-300 transition">Harnes para mascota (Poodle)</a></li>
+            <li><a href="#catalogo" class="hover:text-brand-300 transition">Panuelo para mascotas (Peet)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-display font-bold text-white text-sm mb-3">Pedidos y Reservas</h4>
+          <p class="text-xs mb-3">WhatsApp Business Oficial:</p>
+          <a href="https://wa.me/50499864645" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm font-bold text-emerald-400 hover:text-emerald-300">
+            <i class="ph-fill ph-whatsapp-logo text-lg"></i>
+            <span>+504 9986-4645</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <p>© 2026 PetSelect HN. Todos los derechos reservados.</p>
+        <p>Precios referenciales expresados en Lempiras hondureños (L).</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       8. VENTANA MODAL PREMIUM DE DETALLE DE PRODUCTO
+       ========================================================================== -->
+  <div id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"
+       class="fixed inset-0 z-50 hidden items-center justify-center p-4 sm:p-6 bg-slate-950/70 backdrop-blur-sm animate-fade-in">
+    
+    <!-- Contenedor Modal -->
+    <div id="productModalCard" class="relative w-full max-w-3xl bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden animate-scale-up max-h-[92vh] flex flex-col">
+      
+      <!-- Botón Cerrar Elegante -->
+      <button id="closeModalBtn" type="button" aria-label="Cerrar detalle del producto"
+              class="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-white/90 hover:bg-slate-900 text-slate-700 hover:text-white shadow-md border border-slate-200 flex items-center justify-center transition btn-press">
+        <i class="ph-bold ph-x text-lg"></i>
+      </button>
+
+      <!-- Cuerpo Scrollable del Modal -->
+      <div class="overflow-y-auto grid md:grid-cols-12">
+        
+        <!-- Columna Imagen Ampliada -->
+        <div class="md:col-span-6 bg-slate-100 relative flex flex-col justify-between p-6 min-h-[280px] sm:min-h-[360px]">
+          <div class="flex items-center justify-between gap-2 z-10">
+            <span id="modalCodeBadge" class="px-2.5 py-1 rounded-lg bg-slate-900/85 text-white text-xs font-mono font-semibold">
+              CAT-01
+            </span>
+            <span class="px-2.5 py-1 rounded-lg bg-brand-600 text-white text-xs font-semibold">
+              🇺🇸 Importado USA
+            </span>
+          </div>
+
+          <div class="my-auto py-4 flex items-center justify-center">
+            <img id="modalImage" src="" alt="" class="max-h-72 w-auto object-contain rounded-2xl shadow-md transition-transform duration-300 hover:scale-105" />
+          </div>
+
+          <p class="text-[11px] text-center text-slate-500 font-medium">
+            * Fotografía real correspondiente al insumo en catálogo
+          </p>
+        </div>
+
+        <!-- Columna Información Detallada -->
+        <div class="md:col-span-6 p-6 sm:p-8 flex flex-col justify-between space-y-5">
+          <div class="space-y-3">
+            <div class="flex flex-wrap items-center gap-2">
+              <span id="modalCategory" class="text-xs font-bold uppercase tracking-wider text-brand-700 bg-brand-50 px-2.5 py-1 rounded-md">
+                Categoría
+              </span>
+              <span id="modalBrandBadge" class="text-xs font-semibold text-slate-600 bg-slate-100 px-2.5 py-1 rounded-md">
+                Marca: N/D
+              </span>
+            </div>
+
+            <h3 id="modalTitle" class="font-display text-2xl sm:text-3xl font-extrabold text-slate-900 leading-tight">
+              Nombre del Insumo
+            </h3>
+
+            <div class="flex items-baseline gap-3 pt-1">
+              <span id="modalPrice" class="font-display text-3xl font-extrabold text-brand-700">
+                L 0.00
+              </span>
+              <span class="inline-flex items-center gap-1 text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                <span id="modalAvailability">Disponible</span>
+              </span>
+            </div>
+
+            <div class="pt-2 border-t border-slate-100">
+              <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">Descripción del Insumo</h4>
+              <p id="modalDescription" class="text-sm text-slate-600 leading-relaxed">
+                Descripción detallada del producto.
+              </p>
+            </div>
+
+            <!-- Ficha rápida de atributos del catálogo -->
+            <div class="bg-slate-50 rounded-2xl p-3.5 border border-slate-200/70 space-y-1.5 text-xs">
+              <div class="flex justify-between">
+                <span class="text-slate-500">Código de Catálogo:</span>
+                <span id="modalSpecCode" class="font-semibold text-slate-800">N/D</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-500">Marca registrada en catálogo:</span>
+                <span id="modalSpecBrand" class="font-semibold text-slate-800">N/D</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-500">Origen:</span>
+                <span class="font-semibold text-slate-800">Importado de Estados Unidos</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Botones de Acción del Modal -->
+          <div class="space-y-2.5 pt-2">
+            <button id="modalAddToCartBtn" type="button"
+                    class="w-full py-3.5 px-5 rounded-xl bg-slate-900 hover:bg-brand-700 text-white font-display font-bold text-sm shadow-lg transition flex items-center justify-center gap-2 btn-press">
+              <i class="ph-bold ph-shopping-bag text-lg"></i>
+              <span>Agregar al Carrito</span>
+            </button>
+
+            <a id="modalDirectWhatsAppBtn" href="#" target="_blank" rel="noopener noreferrer"
+               class="w-full py-3 px-5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 font-semibold text-xs sm:text-sm transition flex items-center justify-center gap-2 btn-press">
+              <i class="ph-fill ph-whatsapp-logo text-lg text-emerald-600"></i>
+              <span>Consultar solo este ítem por WhatsApp</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       9. DRAWER LATERAL DE CARRITO DE COMPRAS + CHECKOUT WHATSAPP
+       ========================================================================== -->
+  <div id="cartDrawerOverlay" class="fixed inset-0 z-50 hidden bg-slate-950/60 backdrop-blur-xs animate-fade-in">
+    <aside id="cartDrawer" aria-label="Carrito de compras"
+           class="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl flex flex-col animate-slide-left">
+      
+      <!-- Cabecera Carrito -->
+      <div class="px-6 py-5 border-b border-slate-200 flex items-center justify-between bg-slate-50">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-brand-600 text-white flex items-center justify-center">
+            <i class="ph-fill ph-shopping-bag text-lg"></i>
+          </div>
+          <div>
+            <h3 class="font-display font-bold text-lg text-slate-900 leading-none">Tu Carrito</h3>
+            <p class="text-xs text-slate-500 mt-1">Cotización y reserva directa sin pasarela</p>
+          </div>
+        </div>
+        <button id="closeCartBtn" type="button" aria-label="Cerrar carrito"
+                class="w-9 h-9 rounded-xl hover:bg-slate-200/70 text-slate-600 flex items-center justify-center transition">
+          <i class="ph-bold ph-x text-lg"></i>
+        </button>
+      </div>
+
+      <!-- Lista de Ítems del Carrito -->
+      <div id="cartItemsContainer" class="flex-1 overflow-y-auto p-6 space-y-4">
+        <!-- Renderizado dinámico por JS -->
+      </div>
+
+      <!-- Resumen y Checkout WhatsApp -->
+      <div id="cartFooter" class="p-6 bg-slate-50 border-t border-slate-200 space-y-4">
+        <div class="space-y-1.5 text-sm">
+          <div class="flex justify-between text-slate-600">
+            <span>Subtotal referencial:</span>
+            <span id="cartSubtotal" class="font-semibold text-slate-900">L 0</span>
+          </div>
+          <div class="flex justify-between text-slate-600 text-xs">
+            <span>Gestión de reserva WhatsApp:</span>
+            <span class="text-emerald-700 font-semibold">Gratis / Directa</span>
+          </div>
+          <div class="flex justify-between items-baseline pt-2 border-t border-slate-200">
+            <span class="font-display font-bold text-base text-slate-900">Total Referencial:</span>
+            <span id="cartTotal" class="font-display font-extrabold text-2xl text-brand-700">L 0</span>
+          </div>
+        </div>
+
+        <!-- Botón Principal Finalizar Pedido vía WhatsApp -->
+        <button id="checkoutWhatsAppBtn" type="button"
+                class="w-full py-4 px-5 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] text-slate-950 font-display font-extrabold text-sm sm:text-base shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2.5 transition btn-press">
+          <i class="ph-fill ph-whatsapp-logo text-2xl"></i>
+          <span>Finalizar pedido por WhatsApp</span>
+        </button>
+
+        <div class="flex items-center justify-between text-[11px] text-slate-500">
+          <span>Destino: +504 9986-4645</span>
+          <button id="clearCartBtn" type="button" class="text-rose-600 hover:underline font-medium">
+            Vaciar carrito
+          </button>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- ==========================================================================
+       10. TOAST DE NOTIFICACIÓN (FEEDBACK VISUAL AL AGREGAR)
+       ========================================================================== -->
+  <div id="toastNotification" class="fixed bottom-24 left-1/2 -translate-x-1/2 sm:left-6 sm:translate-x-0 z-50 hidden items-center gap-3 px-4 py-3 rounded-2xl bg-slate-900 text-white text-sm font-medium shadow-float border border-slate-700 animate-pop-in">
+    <div class="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+      <i class="ph-bold ph-check"></i>
+    </div>
+    <span id="toastMessage">Insumo agregado al carrito</span>
+  </div>
+
+  <!-- ==========================================================================
+       11. CHATBOT FLOTANTE MODERNO CON INTELIGENCIA ARTIFICIAL SIMULADA
+       ========================================================================== -->
+  <div id="chatbotWrapper" class="fixed bottom-5 right-5 z-40 flex flex-col items-end">
+    
+    <!-- Ventana del Chatbot -->
+    <div id="chatWindow" class="hidden w-[340px] sm:w-[380px] max-w-[calc(100vw-2.5rem)] bg-white rounded-3xl shadow-2xl border border-slate-200/90 overflow-hidden mb-3.5 animate-pop-in flex flex-col">
+      
+      <!-- Header Estilo SaaS Moderno -->
+      <div class="bg-gradient-to-r from-slate-900 via-brand-950 to-brand-900 text-white px-5 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="relative">
+            <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-brand-400 to-emerald-300 text-slate-950 flex items-center justify-center shadow-md">
+              <i class="ph-fill ph-sparkle text-xl"></i>
+            </div>
+            <span class="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-400 border-2 border-slate-900"></span>
+          </div>
+          <div>
+            <div class="flex items-center gap-1.5">
+              <h4 class="font-display font-bold text-sm">PetBot IA</h4>
+              <span class="text-[10px] px-1.5 py-0.5 rounded bg-white/15 text-brand-200 font-semibold">Asistente</span>
+            </div>
+            <p class="text-[11px] text-emerald-300 font-medium">En línea • Respuesta inmediata</p>
+          </div>
+        </div>
+        <button id="closeChatBtn" type="button" aria-label="Minimizar chat"
+                class="w-8 h-8 rounded-xl hover:bg-white/10 text-slate-300 hover:text-white flex items-center justify-center transition">
+          <i class="ph-bold ph-minus text-lg"></i>
+        </button>
+      </div>
+
+      <!-- Área de Mensajes -->
+      <div id="chatMessages" class="h-80 overflow-y-auto p-4 space-y-3 bg-slate-50/70 text-sm">
+        <!-- Mensaje de Bienvenida inicial -->
+        <div class="flex items-start gap-2.5">
+          <div class="w-7 h-7 rounded-xl bg-brand-600 text-white flex items-center justify-center shrink-0 mt-0.5">
+            <i class="ph-fill ph-sparkle text-xs"></i>
+          </div>
+          <div class="bg-white border border-slate-200/80 rounded-2xl rounded-tl-sm px-3.5 py-2.5 shadow-2xs text-slate-700 text-xs sm:text-[13px] leading-relaxed">
+            ¡Hola! 👋 Soy <strong>PetBot</strong>, tu asistente virtual de <strong>PetSelect HN</strong>. ¿En qué puedo ayudarte hoy con nuestros insumos importados de EE.UU.?
+          </div>
+        </div>
+      </div>
+
+      <!-- Chips de Preguntas Frecuentes Rápidas -->
+      <div class="px-3.5 py-2.5 bg-white border-t border-slate-100 flex gap-1.5 overflow-x-auto no-scrollbar">
+        <button type="button" class="chat-chip shrink-0 px-2.5 py-1 rounded-full bg-brand-50 hover:bg-brand-100 text-brand-800 border border-brand-200/70 text-[11px] font-semibold transition" data-query="productos">
+          🐾 Productos y precios
+        </button>
+        <button type="button" class="chat-chip shrink-0 px-2.5 py-1 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-[11px] font-semibold transition" data-query="entregas">
+          🚚 Entregas
+        </button>
+        <button type="button" class="chat-chip shrink-0 px-2.5 py-1 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-[11px] font-semibold transition" data-query="horarios">
+          🕒 Horarios
+        </button>
+        <button type="button" class="chat-chip shrink-0 px-2.5 py-1 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-[11px] font-semibold transition" data-query="promociones">
+          🏷️ Promociones
+        </button>
+        <button type="button" class="chat-chip shrink-0 px-2.5 py-1 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-[11px] font-semibold transition" data-query="seguimiento">
+          📦 Seguimiento
+        </button>
+        <button type="button" class="chat-chip shrink-0 px-2.5 py-1 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-[11px] font-semibold transition" data-query="soporte">
+          🛠️ Soporte
+        </button>
+        <button type="button" class="chat-chip shrink-0 px-2.5 py-1 rounded-full bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 text-[11px] font-semibold transition" data-query="contacto">
+          📱 Contacto
+        </button>
+      </div>
+
+      <!-- Input de Chat -->
+      <form id="chatForm" class="p-3 bg-white border-t border-slate-200 flex items-center gap-2">
+        <input type="text" id="chatInput" placeholder="Escribe tu pregunta aquí..." autocomplete="off"
+               class="flex-1 px-3.5 py-2 rounded-xl bg-slate-100 border border-transparent focus:bg-white focus:border-brand-500 text-xs sm:text-sm text-slate-800 focus:outline-none transition" />
+        <button type="submit" aria-label="Enviar mensaje"
+                class="w-9 h-9 rounded-xl bg-brand-600 hover:bg-brand-700 text-white flex items-center justify-center shrink-0 transition btn-press">
+          <i class="ph-fill ph-paper-plane-right text-base"></i>
+        </button>
+      </form>
+    </div>
+
+    <!-- Botón Flotante Disparador del Chatbot -->
+    <button id="toggleChatBtn" type="button" aria-label="Abrir asistente virtual"
+            class="group flex items-center gap-2.5 px-4 py-3.5 rounded-full bg-slate-900 hover:bg-brand-700 text-white shadow-float border border-slate-700/80 transition-all btn-press">
+      <div class="relative flex items-center justify-center">
+        <i class="ph-fill ph-chat-teardrop-dots text-2xl text-brand-300 group-hover:text-white transition-colors"></i>
+        <span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+      </div>
+      <span class="font-display font-bold text-xs sm:text-sm pr-1">¿Dudas? Asistente IA</span>
+    </button>
+
+  </div>
+
+  <!-- ==========================================================================
+       12. LÓGICA JAVASCRIPT COMPLETA (DATASET ESTRICTO, RENDER, CART, WA, IA BOT)
+       ========================================================================== -->
+  <script>
+    /**
+     * 1. DATASET OFICIAL DEL CATÁLOGO DE INSUMOS PARA MASCOTAS
+     * Reglas cumplidas estrictamente:
+     * - Extraído fielmente del documento proporcionado.
+     * - No se inventan nombres, modelos, años ni precios fuera del documento.
+     * - Precios normalizados a formato numérico para cálculo y formateados a Lempiras (L).
+     * - URLs de fotos reales preservadas sin alteraciones.
+     */
+    const CATALOGO_INSUMOS = [
+      {
+        id: "CAT-01",
+        numero: 1,
+        nombre: "Cama para perro",
+        marca: "Pet",
+        precio: 1200,
+        moneda: "L",
+        foto: "https://lh3.googleusercontent.com/d/1alQHpvd-SiRvDiWAc-YtCpwvmggsBOL9",
+        categoria: "Descanso y Confort",
+        disponibilidad: "Disponible",
+        origen: "Importado de EE.UU.",
+        destacado: true,
+        descripcionBreve: "Cama importada de EE.UU. marca Pet diseñada para brindar descanso cómodo y soporte diario a tu perro.",
+        descripcionDetallada: "Insumo de descanso importado desde Estados Unidos (Marca: Pet). Ideal para acondicionar un espacio acogedor, limpio y confortable dentro del hogar en Honduras. Fotografía real correspondiente al artículo disponible en inventario."
+      },
+      {
+        id: "CAT-02",
+        numero: 2,
+        nombre: "Cepillo para mascota",
+        marca: "Poodle",
+        precio: 350,
+        moneda: "L",
+        foto: "https://lh3.googleusercontent.com/d/1_llneqCs6z6P6kUM1wfXH9CRU2BqD63c",
+        categoria: "Estética y Cepillado",
+        disponibilidad: "Disponible",
+        origen: "Importado de EE.UU.",
+        destacado: true,
+        descripcionBreve: "Cepillo para mascota marca Poodle importado de EE.UU., práctico para el cuidado y desenredo del pelaje.",
+        descripcionDetallada: "Herramienta de aseo y mantenimiento diario para mascotas (Marca: Poodle), importada directamente de Estados Unidos. Ayuda a mantener el pelaje ordenado y limpio en sesiones de cepillado en casa. Imagen real del producto a la venta."
+      },
+      {
+        id: "CAT-03",
+        numero: 3,
+        nombre: "Shampo medicado",
+        marca: "Dermatex",
+        precio: 450,
+        moneda: "L",
+        foto: "https://lh3.googleusercontent.com/d/1pKJp9l9AeWmGCoevjBhpL1DTBNDA1C5M",
+        categoria: "Higiene y Cuidado Dermatológico",
+        disponibilidad: "Disponible",
+        origen: "Importado de EE.UU.",
+        destacado: true,
+        descripcionBreve: "Shampo medicado marca Dermatex importado de EE.UU. para la limpieza y cuidado especializado de la piel.",
+        descripcionDetallada: "Producto de higiene especializada importado desde Estados Unidos (Marca: Dermatex). Formulado para el baño y cuidado dermatológico de mascotas conforme a recomendación veterinaria o rutina de limpieza. Fotografía real del envase disponible."
+      },
+      {
+        id: "CAT-04",
+        numero: 4,
+        nombre: "Harnes para mascota",
+        marca: "Poodle",
+        precio: 250,
+        moneda: "L",
+        foto: "https://lh3.googleusercontent.com/d/19tSwP5fwRsdqp6FGb9eLqU-vQo2qMvg9",
+        categoria: "Paseo y Sujeción",
+        disponibilidad: "Disponible",
+        origen: "Importado de EE.UU.",
+        destacado: false,
+        descripcionBreve: "Harnes para mascota marca Poodle importado de EE.UU., pensado para paseos seguros y control cómodo.",
+        descripcionDetallada: "Accesorio de paseo y sujeción importado desde Estados Unidos (Marca: Poodle). Brinda ajuste práctico para salidas diarias con mayor control y comodidad para tu mascota. Fotografía real correspondiente al insumo en inventario."
+      },
+      {
+        id: "CAT-05",
+        numero: 5,
+        nombre: "Panuelo para mascotas",
+        marca: "Peet",
+        precio: 150,
+        moneda: "L",
+        foto: "https://lh3.googleusercontent.com/d/1oh_-X6Bb2RnvxuCe2mkUre9uNYtLRGoX",
+        categoria: "Accesorios y Estilo",
+        disponibilidad: "Disponible",
+        origen: "Importado de EE.UU.",
+        destacado: false,
+        descripcionBreve: "Panuelo para mascotas marca Peet importado de EE.UU., accesorio ligero para complementar su presentación.",
+        descripcionDetallada: "Accesorio textil importado desde Estados Unidos (Marca: Peet) para darle un toque distintivo a tu mascota en paseos o después del baño. Fotografía real correspondiente al artículo disponible."
+      }
+    ];
+
+    // Número oficial de WhatsApp Business (Honduras)
+    const WHATSAPP_NUMBER = "50499864645";
+    const STORAGE_KEY = "petselect_hn_cart_v1";
+
+    // Estado de la aplicación
+    let cart = [];
+    let currentModalProduct = null;
+
+    /**
+     * Formateador de precios en Lempiras hondureños con separadores de miles
+     * Ejemplo: 1200 -> "L 1,200"
+     */
+    function formatLempiras(amount) {
+      const num = Number(amount) || 0;
+      return `L ${num.toLocaleString("en-US")}`;
+    }
+
+    /**
+     * Genera enlace de WhatsApp correctamente URL-encoded
+     */
+    function buildWhatsAppURL(message) {
+      return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    }
+
+    /* ==========================================================================
+       2. PERSISTENCIA Y GESTIÓN DEL CARRITO (localStorage)
+       ========================================================================== */
+    function loadCart() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          // Validar que los IDs sigan existiendo en el catálogo oficial
+          if (Array.isArray(parsed)) {
+            cart = parsed.filter(item => CATALOGO_INSUMOS.some(p => p.id === item.id));
+          }
+        }
+      } catch (e) {
+        console.warn("No se pudo leer el carrito de localStorage:", e);
+        cart = [];
+      }
+    }
+
+    function saveCart() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
+      } catch (e) {
+        console.warn("No se pudo guardar el carrito en localStorage:", e);
+      }
+    }
+
+    function addToCart(productId, qty = 1) {
+      const product = CATALOGO_INSUMOS.find(p => p.id === productId);
+      if (!product) return;
+
+      const existing = cart.find(item => item.id === productId);
+      if (existing) {
+        existing.cantidad += qty;
+      } else {
+        cart.push({
+          id: product.id,
+          cantidad: qty
+        });
+      }
+
+      saveCart();
+      updateCartUI();
+      showToast(`"${product.nombre}" (${product.marca || "N/D"}) agregado al carrito`);
+    }
+
+    function updateCartQty(productId, delta) {
+      const idx = cart.findIndex(item => item.id === productId);
+      if (idx === -1) return;
+
+      cart[idx].cantidad += delta;
+      if (cart[idx].cantidad <= 0) {
+        cart.splice(idx, 1);
+      }
+
+      saveCart();
+      updateCartUI();
+    }
+
+    function removeFromCart(productId) {
+      cart = cart.filter(item => item.id !== productId);
+      saveCart();
+      updateCartUI();
+    }
+
+    function clearCart() {
+      cart = [];
+      saveCart();
+      updateCartUI();
+    }
+
+    function getCartDetailedItems() {
+      return cart.map(entry => {
+        const product = CATALOGO_INSUMOS.find(p => p.id === entry.id);
+        return {
+          ...product,
+          cantidad: entry.cantidad,
+          subtotal: product.precio * entry.cantidad
+        };
+      });
+    }
+
+    function updateCartUI() {
+      const items = getCartDetailedItems();
+      const totalUnits = items.reduce((acc, item) => acc + item.cantidad, 0);
+      const totalAmount = items.reduce((acc, item) => acc + item.subtotal, 0);
+
+      // Actualizar badge en header
+      const badge = document.getElementById("cartBadge");
+      badge.textContent = totalUnits;
+      badge.classList.add("scale-125");
+      setTimeout(() => badge.classList.remove("scale-125"), 200);
+
+      // Actualizar totales en Drawer
+      document.getElementById("cartSubtotal").textContent = formatLempiras(totalAmount);
+      document.getElementById("cartTotal").textContent = formatLempiras(totalAmount);
+
+      const container = document.getElementById("cartItemsContainer");
+      const footer = document.getElementById("cartFooter");
+
+      if (items.length === 0) {
+        footer.classList.add("hidden");
+        container.innerHTML = `
+          <div class="h-full flex flex-col items-center justify-center text-center py-12 px-4">
+            <div class="w-16 h-16 rounded-2xl bg-slate-100 text-slate-400 flex items-center justify-center mb-4">
+              <i class="ph-duotone ph-shopping-bag text-3xl"></i>
+            </div>
+            <h4 class="font-display font-bold text-slate-900 text-base">Tu carrito está vacío</h4>
+            <p class="text-xs text-slate-500 mt-1.5 max-w-xs leading-relaxed">
+              Explora nuestro catálogo de insumos importados de EE.UU. y agrega los artículos que deseas cotizar o reservar.
+            </p>
+            <button type="button" onclick="closeCart(); document.getElementById('catalogo').scrollIntoView({behavior:'smooth'});"
+                    class="mt-5 px-5 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 text-white text-xs font-bold transition">
+              Explorar Catálogo
+            </button>
+          </div>
+        `;
+        return;
+      }
+
+      footer.classList.remove("hidden");
+      container.innerHTML = items.map(item => `
+        <div class="flex gap-3.5 p-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs items-center">
+          <img src="${item.foto}" alt="${item.nombre}"
+               class="w-16 h-16 rounded-xl object-cover bg-slate-100 border border-slate-200 shrink-0" />
+          <div class="flex-1 min-w-0">
+            <div class="flex items-start justify-between gap-2">
+              <div>
+                <span class="text-[10px] font-mono font-bold text-slate-400">${item.id}</span>
+                <h4 class="font-display font-bold text-sm text-slate-900 truncate">${item.nombre}</h4>
+                <p class="text-xs text-slate-500">Marca: <strong class="text-slate-700">${item.marca || "N/D"}</strong></p>
+              </div>
+              <button type="button" onclick="removeFromCart('${item.id}')" aria-label="Eliminar ${item.nombre}"
+                      class="text-slate-400 hover:text-rose-600 p-1 transition">
+                <i class="ph ph-trash text-base"></i>
+              </button>
+            </div>
+
+            <div class="mt-2.5 flex items-center justify-between">
+              <span class="font-display font-bold text-sm text-brand-700">${formatLempiras(item.subtotal)}</span>
+              
+              <!-- Controles de cantidad -->
+              <div class="inline-flex items-center rounded-lg border border-slate-200 bg-slate-50">
+                <button type="button" onclick="updateCartQty('${item.id}', -1)" aria-label="Disminuir cantidad"
+                        class="w-7 h-7 flex items-center justify-center text-slate-600 hover:bg-slate-200/70 rounded-l-lg font-bold transition">
+                  −
+                </button>
+                <span class="px-2.5 text-xs font-bold text-slate-900">${item.cantidad}</span>
+                <button type="button" onclick="updateCartQty('${item.id}', 1)" aria-label="Aumentar cantidad"
+                        class="w-7 h-7 flex items-center justify-center text-slate-600 hover:bg-slate-200/70 rounded-r-lg font-bold transition">
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    /**
+     * FLUJO PRINCIPAL DE CHECKOUT SIN PASARELA VÍA WHATSAPP BUSINESS
+     * Construye el mensaje precargado cordial, estructurado y URL-encoded hacia +50499864645
+     */
+    function checkoutViaWhatsApp() {
+      const items = getCartDetailedItems();
+      if (items.length === 0) return;
+
+      const totalAmount = items.reduce((acc, item) => acc + item.subtotal, 0);
+
+      const lines = [
+        "Hola 😊 Me interesa cotizar y conocer disponibilidad de estos insumos para mascotas que vi en su web:",
+        "",
+        "*Detalle de mi selección:*"
+      ];
+
+      items.forEach((item, index) => {
+        const brandLabel = item.marca || "N/D";
+        const unitPrice = formatLempiras(item.precio);
+        const lineSubtotal = formatLempiras(item.subtotal);
+        lines.push(
+          `${index + 1}. *${item.nombre}* (Marca: ${brandLabel} | Código: ${item.id}) — Cant: ${item.cantidad} x ${unitPrice} = *${lineSubtotal}*`
+        );
+      });
+
+      lines.push("");
+      lines.push(`💰 *Total referencial:* ${formatLempiras(totalAmount)}`);
+      lines.push("");
+      lines.push("¿Me confirmas disponibilidad y próximos pasos? Quedo atento(a) para coordinar entrega, llamada o visita. ¡Muchas gracias! 🐾");
+
+      const fullMessage = lines.join("\n");
+      const whatsappUrl = buildWhatsAppURL(fullMessage);
+
+      window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+    }
+
+    /* ==========================================================================
+       3. RENDERIZADO DE HERO PREVIEW, DESTACADOS Y CATÁLOGO FILTRABLE
+       ========================================================================== */
+    function renderHeroPreview() {
+      const container = document.getElementById("heroPreviewGrid");
+      const sample = CATALOGO_INSUMOS.slice(0, 4);
+
+      container.innerHTML = sample.map(item => `
+        <button type="button" onclick="openProductModal('${item.id}')"
+                class="group text-left bg-white/10 hover:bg-white/15 border border-white/15 rounded-2xl p-3 transition flex flex-col justify-between">
+          <div class="relative w-full h-24 rounded-xl overflow-hidden bg-white mb-2.5">
+            <img src="${item.foto}" alt="Foto real: ${item.nombre}"
+                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+            <span class="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded bg-slate-900/80 text-white text-[10px] font-mono">
+              ${item.id}
+            </span>
+          </div>
+          <div>
+            <p class="text-[11px] text-brand-300 font-semibold truncate">Marca: ${item.marca || "N/D"}</p>
+            <p class="text-xs font-bold text-white truncate">${item.nombre}</p>
+            <p class="font-display font-extrabold text-sm text-emerald-300 mt-0.5">${formatLempiras(item.precio)}</p>
+          </div>
+        </button>
+      `).join("");
+    }
+
+    function createProductCardHTML(item) {
+      const brandText = item.marca ? item.marca : "N/D";
+      return `
+        <article class="product-card bg-white rounded-3xl border border-slate-200/90 shadow-card hover:shadow-card-hover hover:border-brand-300 overflow-hidden flex flex-col justify-between">
+          <div>
+            <!-- Contenedor de Imagen Real del Catálogo -->
+            <div onclick="openProductModal('${item.id}')" class="relative h-60 bg-slate-100 overflow-hidden cursor-pointer group">
+              <img src="${item.foto}" alt="${item.nombre} - Marca ${brandText}" loading="lazy"
+                   class="product-img w-full h-full object-cover" />
+              
+              <!-- Badges superiores -->
+              <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between gap-2 pointer-events-none">
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-emerald-600/95 text-white text-[11px] font-bold shadow-sm">
+                  <span class="w-1.5 h-1.5 rounded-full bg-white"></span>
+                  ${item.disponibilidad}
+                </span>
+                <span class="px-2.5 py-1 rounded-full bg-slate-900/85 text-white text-[11px] font-semibold backdrop-blur-xs">
+                  🇺🇸 Importado
+                </span>
+              </div>
+
+              <!-- Etiqueta visual que deja claro que la foto corresponde al insumo real -->
+              <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-lg bg-white/90 backdrop-blur-xs text-slate-800 text-[11px] font-mono font-bold shadow-xs">
+                  ${item.id}
+                </span>
+                <span class="px-2.5 py-1 rounded-lg bg-slate-900/80 text-white text-[11px] font-medium opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                  <i class="ph-bold ph-magnifying-glass-plus"></i> Ver detalle
+                </span>
+              </div>
+            </div>
+
+            <!-- Información del Producto -->
+            <div class="p-5 sm:p-6 pb-3">
+              <div class="flex items-center justify-between gap-2 text-xs mb-1.5">
+                <span class="font-bold uppercase tracking-wider text-brand-700">Marca: ${brandText}</span>
+                <span class="text-slate-400 font-medium">${item.categoria}</span>
+              </div>
+
+              <h3 onclick="openProductModal('${item.id}')"
+                  class="font-display font-extrabold text-lg sm:text-xl text-slate-900 hover:text-brand-700 cursor-pointer transition-colors">
+                ${item.nombre}
+              </h3>
+
+              <p class="text-xs sm:text-sm text-slate-600 mt-2 line-clamp-2 leading-relaxed">
+                ${item.descripcionBreve}
+              </p>
+            </div>
+          </div>
+
+          <!-- Precio y Botones de Acción -->
+          <div class="px-5 sm:px-6 pb-6 pt-3 mt-auto border-t border-slate-100 flex items-center justify-between gap-3">
+            <div>
+              <span class="block text-[11px] text-slate-400 font-medium">Precio en Lempiras</span>
+              <span class="font-display font-extrabold text-xl sm:text-2xl text-slate-900">
+                ${formatLempiras(item.precio)}
+              </span>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <button type="button" onclick="openProductModal('${item.id}')" aria-label="Ver detalles de ${item.nombre}"
+                      class="p-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition btn-press" title="Ver ficha completa">
+                <i class="ph-bold ph-eye text-lg"></i>
+              </button>
+              <button type="button" onclick="addToCart('${item.id}', 1)"
+                      class="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-slate-900 hover:bg-brand-700 text-white font-display font-bold text-xs sm:text-sm shadow-sm transition btn-press">
+                <i class="ph-bold ph-plus"></i>
+                <span>Agregar</span>
+              </button>
+            </div>
+          </div>
+        </article>
+      `;
+    }
+
+    function renderFeaturedProducts() {
+      const container = document.getElementById("featuredProductsGrid");
+      const featured = CATALOGO_INSUMOS.filter(item => item.destacado);
+      container.innerHTML = featured.map(createProductCardHTML).join("");
+    }
+
+    function populateBrandFilter() {
+      const select = document.getElementById("brandFilter");
+      const uniqueBrands = [...new Set(CATALOGO_INSUMOS.map(item => item.marca || "N/D"))];
+
+      uniqueBrands.forEach(brand => {
+        const option = document.createElement("option");
+        option.value = brand;
+        option.textContent = `Marca: ${brand}`;
+        select.appendChild(option);
+      });
+    }
+
+    function filterAndRenderCatalog() {
+      const searchQuery = document.getElementById("searchInput").value.trim().toLowerCase();
+      const selectedBrand = document.getElementById("brandFilter").value;
+      const selectedPrice = document.getElementById("priceFilter").value;
+
+      const filtered = CATALOGO_INSUMOS.filter(item => {
+        const brandVal = item.marca || "N/D";
+        const matchesSearch =
+          item.nombre.toLowerCase().includes(searchQuery) ||
+          brandVal.toLowerCase().includes(searchQuery) ||
+          item.id.toLowerCase().includes(searchQuery) ||
+          item.categoria.toLowerCase().includes(searchQuery);
+
+        const matchesBrand = selectedBrand === "all" || brandVal === selectedBrand;
+
+        let matchesPrice = true;
+        if (selectedPrice === "0-300") matchesPrice = item.precio <= 300;
+        else if (selectedPrice === "301-500") matchesPrice = item.precio > 300 && item.precio <= 500;
+        else if (selectedPrice === "501-max") matchesPrice = item.precio > 500;
+
+        return matchesSearch && matchesBrand && matchesPrice;
+      });
+
+      const grid = document.getElementById("catalogGrid");
+      const emptyState = document.getElementById("emptyCatalogState");
+      const resultsCount = document.getElementById("resultsCount");
+
+      resultsCount.textContent = `Mostrando ${filtered.length} de ${CATALOGO_INSUMOS.length} insumos disponibles`;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = "";
+        emptyState.classList.remove("hidden");
+      } else {
+        emptyState.classList.add("hidden");
+        grid.innerHTML = filtered.map(createProductCardHTML).join("");
+      }
+    }
+
+    function resetFilters() {
+      document.getElementById("searchInput").value = "";
+      document.getElementById("brandFilter").value = "all";
+      document.getElementById("priceFilter").value = "all";
+      filterAndRenderCatalog();
+    }
+
+    /* ==========================================================================
+       4. MODAL PREMIUM DE PRODUCTO
+       ========================================================================== */
+    function openProductModal(productId) {
+      const product = CATALOGO_INSUMOS.find(p => p.id === productId);
+      if (!product) return;
+
+      currentModalProduct = product;
+      const brandLabel = product.marca || "N/D";
+
+      document.getElementById("modalCodeBadge").textContent = product.id;
+      document.getElementById("modalImage").src = product.foto;
+      document.getElementById("modalImage").alt = `${product.nombre} - Marca ${brandLabel}`;
+      document.getElementById("modalCategory").textContent = product.categoria;
+      document.getElementById("modalBrandBadge").textContent = `Marca: ${brandLabel}`;
+      document.getElementById("modalTitle").textContent = product.nombre;
+      document.getElementById("modalPrice").textContent = formatLempiras(product.precio);
+      document.getElementById("modalAvailability").textContent = product.disponibilidad;
+      document.getElementById("modalDescription").textContent = product.descripcionDetallada;
+      document.getElementById("modalSpecCode").textContent = product.id;
+      document.getElementById("modalSpecBrand").textContent = brandLabel;
+
+      // Enlace directo de WhatsApp para consulta individual desde el modal
+      const singleMsg = `Hola 😊 Me interesa cotizar y conocer disponibilidad de este insumo que vi en su catálogo:\n\n• *${product.nombre}* (Marca: ${brandLabel} | Código: ${product.id}) — Precio: *${formatLempiras(product.precio)}*\n\n¿Me confirmas disponibilidad y próximos pasos?`;
+      document.getElementById("modalDirectWhatsAppBtn").href = buildWhatsAppURL(singleMsg);
+
+      const modal = document.getElementById("productModal");
+      modal.classList.remove("hidden");
+      modal.classList.add("flex");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeProductModal() {
+      const modal = document.getElementById("productModal");
+      modal.classList.add("hidden");
+      modal.classList.remove("flex");
+      document.body.style.overflow = "";
+      currentModalProduct = null;
+    }
+
+    /* ==========================================================================
+       5. CONTROL DE DRAWER CARRITO Y NOTIFICACIONES TOAST
+       ========================================================================== */
+    function openCart() {
+      const overlay = document.getElementById("cartDrawerOverlay");
+      overlay.classList.remove("hidden");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeCart() {
+      const overlay = document.getElementById("cartDrawerOverlay");
+      overlay.classList.add("hidden");
+      document.body.style.overflow = "";
+    }
+
+    let toastTimeout = null;
+    function showToast(text) {
+      const toast = document.getElementById("toastNotification");
+      document.getElementById("toastMessage").textContent = text;
+      toast.classList.remove("hidden");
+      toast.classList.add("flex");
+
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.add("hidden");
+        toast.classList.remove("flex");
+      }, 2800);
+    }
+
+    /* ==========================================================================
+       6. CHATBOT FLOTANTE CON INTELIGENCIA ARTIFICIAL SIMULADA (FAQ E-COMMERCE)
+       ========================================================================== */
+    const BOT_KNOWLEDGE_BASE = [
+      {
+        keywords: ["horario", "horarios", "hora", "abierto", "atienden", "atencion"],
+        reply: "🕒 Nuestro horario de atención es de **Lunes a Sábado de 8:00 AM a 6:00 PM**. También puedes armar tu carrito en la web las 24 horas y enviarlo a nuestro WhatsApp (+504 9986-4645) para confirmarte a primera hora."
+      },
+      {
+        keywords: ["entrega", "entregas", "envio", "envios", "domicilio", "llevan", "mandan", "honduras"],
+        reply: "🚚 Realizamos **entregas locales coordinadas y envíos a nivel nacional en Honduras**. Una vez envías tu carrito por WhatsApp, confirmamos disponibilidad inmediata y acordamos el método de entrega o punto de retiro más cómodo para ti."
+      },
+      {
+        keywords: ["promocion", "promociones", "descuento", "descuentos", "oferta", "ofertas", "combo"],
+        reply: "🏷️ Todos nuestros insumos importados de EE.UU. ya cuentan con **precios directos competitivos en Lempiras (L)**. Si deseas cotizar varios artículos en un mismo pedido, envíalos desde el carrito a nuestro WhatsApp (+504 9986-4645) para consultar opciones vigentes."
+      },
+      {
+        keywords: ["producto", "productos", "catalogo", "precio", "precios", "tienen", "venden", "cama", "cepillo", "shampo", "harnes", "panuelo"],
+        reply: "🐾 Nuestro catálogo actual importado desde EE.UU. incluye:\n• **Cama para perro** (Marca: Pet) — **L 1,200**\n• **Cepillo para mascota** (Marca: Poodle) — **L 350**\n• **Shampo medicado** (Marca: Dermatex) — **L 450**\n• **Harnes para mascota** (Marca: Poodle) — **L 250**\n• **Panuelo para mascotas** (Marca: Peet) — **L 150**\n\nTodos disponibles para agregar al carrito."
+      },
+      {
+        keywords: ["contacto", "whatsapp", "telefono", "numero", "llamar", "visita", "hablar"],
+        reply: "📱 Puedes comunicarte directamente con nuestro equipo de ventas en Honduras al **WhatsApp Business +504 9986-4645**. Si ya elegiste tus productos, usa el botón **“Finalizar pedido por WhatsApp”** dentro de tu carrito."
+      },
+      {
+        keywords: ["soporte", "tecnico", "ayuda", "error", "problema", "funciona", "como compro", "comprar"],
+        reply: "🛠️ **¿Cómo comprar en nuestra tienda?**\n1. Haz clic en **Agregar** en los insumos que te interesen.\n2. Abre tu **Carrito** arriba a la derecha.\n3. Presiona **Finalizar pedido por WhatsApp**.\n\nNo solicitamos tarjetas en línea; confirmamos stock contigo antes de cerrar tu compra."
+      },
+      {
+        keywords: ["seguimiento", "pedido", "pedidos", "rastreo", "estado", "reserva"],
+        reply: "📦 Para consultar el **seguimiento o estado de una reserva**, escríbenos directamente a nuestro WhatsApp oficial **+504 9986-4645** indicando tu nombre y los artículos solicitados para darte actualización al instante."
+      }
+    ];
+
+    function getBotResponse(userText) {
+      const normalized = userText
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+
+      for (const entry of BOT_KNOWLEDGE_BASE) {
+        if (entry.keywords.some(kw => normalized.includes(kw))) {
+          return entry.reply;
+        }
+      }
+
+      return "🤖 ¡Gracias por escribirnos! Puedo ayudarte con información sobre **productos y precios, horarios, entregas en Honduras, promociones, seguimiento de pedidos o soporte**. También puedes escribirnos directo al WhatsApp **+504 9986-4645**.";
+    }
+
+    function appendChatMessage(text, sender = "bot") {
+      const container = document.getElementById("chatMessages");
+      const wrapper = document.createElement("div");
+
+      // Formatear negritas estilo markdown **texto** y saltos de línea
+      const formattedHTML = text
+        .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+        .replace(/\n/g, "<br>");
+
+      if (sender === "user") {
+        wrapper.className = "flex justify-end";
+        wrapper.innerHTML = `
+          <div class="bg-brand-700 text-white rounded-2xl rounded-tr-sm px-3.5 py-2.5 shadow-2xs text-xs sm:text-[13px] max-w-[82%] leading-relaxed">
+            ${formattedHTML}
+          </div>
+        `;
+      } else {
+        wrapper.className = "flex items-start gap-2.5 animate-fade-in";
+        wrapper.innerHTML = `
+          <div class="w-7 h-7 rounded-xl bg-brand-600 text-white flex items-center justify-center shrink-0 mt-0.5">
+            <i class="ph-fill ph-sparkle text-xs"></i>
+          </div>
+          <div class="bg-white border border-slate-200/80 rounded-2xl rounded-tl-sm px-3.5 py-2.5 shadow-2xs text-slate-700 text-xs sm:text-[13px] max-w-[85%] leading-relaxed">
+            ${formattedHTML}
+          </div>
+        `;
+      }
+
+      container.appendChild(wrapper);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function showBotTypingIndicator() {
+      const container = document.getElementById("chatMessages");
+      const indicator = document.createElement("div");
+      indicator.id = "botTypingIndicator";
+      indicator.className = "flex items-start gap-2.5";
+      indicator.innerHTML = `
+        <div class="w-7 h-7 rounded-xl bg-brand-600 text-white flex items-center justify-center shrink-0 mt-0.5">
+          <i class="ph-fill ph-sparkle text-xs"></i>
+        </div>
+        <div class="bg-white border border-slate-200/80 rounded-2xl rounded-tl-sm px-4 py-3 shadow-2xs flex items-center gap-1">
+          <span class="w-1.5 h-1.5 rounded-full bg-slate-400 typing-dot"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-slate-400 typing-dot"></span>
+          <span class="w-1.5 h-1.5 rounded-full bg-slate-400 typing-dot"></span>
+        </div>
+      `;
+      container.appendChild(indicator);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function removeBotTypingIndicator() {
+      const indicator = document.getElementById("botTypingIndicator");
+      if (indicator) indicator.remove();
+    }
+
+    function handleUserChatSubmit(rawText) {
+      const cleanText = rawText.trim();
+      if (!cleanText) return;
+
+      appendChatMessage(cleanText, "user");
+      showBotTypingIndicator();
+
+      setTimeout(() => {
+        removeBotTypingIndicator();
+        const response = getBotResponse(cleanText);
+        appendChatMessage(response, "bot");
+      }, 550);
+    }
+
+    /* ==========================================================================
+       7. INICIALIZACIÓN Y EVENT LISTENERS
+       ========================================================================== */
+    document.addEventListener("DOMContentLoaded", () => {
+      // Inicializar carrito y vistas
+      loadCart();
+      updateCartUI();
+      renderHeroPreview();
+      renderFeaturedProducts();
+      populateBrandFilter();
+      filterAndRenderCatalog();
+
+      // Eventos de filtros
+      document.getElementById("searchInput").addEventListener("input", filterAndRenderCatalog);
+      document.getElementById("brandFilter").addEventListener("change", filterAndRenderCatalog);
+      document.getElementById("priceFilter").addEventListener("change", filterAndRenderCatalog);
+      document.getElementById("resetFiltersBtn").addEventListener("click", resetFilters);
+
+      // Eventos de Menú Móvil
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+      document.querySelectorAll(".mobile-nav-link").forEach(link => {
+        link.addEventListener("click", () => mobileMenu.classList.add("hidden"));
+      });
+
+      // Eventos de Modal Producto
+      document.getElementById("closeModalBtn").addEventListener("click", closeProductModal);
+      document.getElementById("productModal").addEventListener("click", (e) => {
+        if (e.target.id === "productModal") closeProductModal();
+      });
+      document.getElementById("modalAddToCartBtn").addEventListener("click", () => {
+        if (currentModalProduct) {
+          addToCart(currentModalProduct.id, 1);
+          closeProductModal();
+        }
+      });
+
+      // Eventos de Carrito Drawer
+      document.getElementById("openCartBtn").addEventListener("click", openCart);
+      document.getElementById("closeCartBtn").addEventListener("click", closeCart);
+      document.getElementById("cartDrawerOverlay").addEventListener("click", (e) => {
+        if (e.target.id === "cartDrawerOverlay") closeCart();
+      });
+      document.getElementById("clearCartBtn").addEventListener("click", clearCart);
+      document.getElementById("checkoutWhatsAppBtn").addEventListener("click", checkoutViaWhatsApp);
+
+      // Cerrar modales/drawers con tecla Escape
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closeProductModal();
+          closeCart();
+        }
+      });
+
+      // Formulario de Contacto -> Redirección cordial a WhatsApp Business
+      document.getElementById("contactForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const name = document.getElementById("contactName").value.trim();
+        const city = document.getElementById("contactCity").value.trim();
+        const topic = document.getElementById("contactTopic").value;
+        const message = document.getElementById("contactMessage").value.trim();
+
+        const feedback = document.getElementById("contactFeedback");
+        feedback.classList.remove("hidden");
+
+        const waContactText =
+          `Hola 😊 Soy *${name}* de *${city}*.\n` +
+          `Me comunico desde el formulario de contacto de su tienda web.\n\n` +
+          `• *Interés:* ${topic}\n` +
+          `• *Consulta:* ${message}\n\n` +
+          `¿Me podrían brindar información y coordinar próximos pasos? ¡Gracias!`;
+
+        window.open(buildWhatsAppURL(waContactText), "_blank", "noopener,noreferrer");
+      });
+
+      // Eventos del Chatbot Flotante
+      const chatWindow = document.getElementById("chatWindow");
+      const toggleChatBtn = document.getElementById("toggleChatBtn");
+      const closeChatBtn = document.getElementById("closeChatBtn");
+
+      toggleChatBtn.addEventListener("click", () => {
+        chatWindow.classList.toggle("hidden");
+        if (!chatWindow.classList.contains("hidden")) {
+          document.getElementById("chatInput").focus();
+        }
+      });
+
+      closeChatBtn.addEventListener("click", () => {
+        chatWindow.classList.add("hidden");
+      });
+
+      document.getElementById("chatForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const input = document.getElementById("chatInput");
+        const val = input.value;
+        input.value = "";
+        handleUserChatSubmit(val);
+      });
+
+      document.querySelectorAll(".chat-chip").forEach(chip => {
+        chip.addEventListener("click", () => {
+          const query = chip.getAttribute("data-query");
+          const labelMap = {
+            productos: "¿Qué productos y precios tienen?",
+            entregas: "¿Cómo funcionan las entregas en Honduras?",
+            horarios: "¿Cuál es su horario de atención?",
+            promociones: "¿Tienen promociones vigentes?",
+            seguimiento: "¿Cómo hago seguimiento de mi pedido?",
+            soporte: "Necesito soporte técnico para comprar",
+            contacto: "¿Cuál es su número de contacto?"
+          };
+          handleUserChatSubmit(labelMap[query] || query);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
